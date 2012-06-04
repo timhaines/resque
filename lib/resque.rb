@@ -36,7 +36,7 @@ module Resque
       else
         server, namespace = server.split('/', 2)
         host, port, db = server.split(':')
-        redis = Redis.new(:host => host, :port => port,
+        redis = Redis.new(:host => host, :port => port.to_i,
           :thread_safe => true, :db => db)
       end
       namespace ||= :resque
